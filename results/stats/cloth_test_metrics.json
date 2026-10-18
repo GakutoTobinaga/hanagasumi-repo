@@ -1,0 +1,173 @@
+{
+  "args": {
+    "h": 0.03,
+    "frames": 60,
+    "ramp": 40,
+    "growth": [
+      0.12,
+      0.25,
+      0.4
+    ],
+    "bending": [
+      0.05,
+      0.5,
+      5.0
+    ],
+    "r0": 0.35,
+    "power": 2.0,
+    "aniso": 0.35,
+    "mode": "outline",
+    "edge_width": 0.18,
+    "quality": 8,
+    "selfcol": false,
+    "seed": 1,
+    "out": "/tmp/run1/t"
+  },
+  "initial_area": 0.5398509748629294,
+  "results": [
+    {
+      "growth": 0.0,
+      "bending": 0.05,
+      "area_ratio": 1.0,
+      "plane_rms": 0.0009,
+      "plane_max": 0.0016,
+      "wrinkle_rms": 0.0009,
+      "wrinkle_max": 0.0017,
+      "plane_rms_vs_base": 1.0,
+      "wrinkle_rms_vs_base": 1.0,
+      "buckled": false
+    },
+    {
+      "growth": 0.12,
+      "bending": 0.05,
+      "area_ratio": 1.0632,
+      "plane_rms": 0.0083,
+      "plane_max": 0.0337,
+      "wrinkle_rms": 0.0082,
+      "wrinkle_max": 0.0318,
+      "plane_rms_vs_base": 9.6673,
+      "wrinkle_rms_vs_base": 9.6639,
+      "buckled": false
+    },
+    {
+      "growth": 0.25,
+      "bending": 0.05,
+      "area_ratio": 1.1363,
+      "plane_rms": 0.012,
+      "plane_max": 0.0472,
+      "wrinkle_rms": 0.0119,
+      "wrinkle_max": 0.0479,
+      "plane_rms_vs_base": 14.0084,
+      "wrinkle_rms_vs_base": 13.9565,
+      "buckled": true
+    },
+    {
+      "growth": 0.4,
+      "bending": 0.05,
+      "area_ratio": 1.2268,
+      "plane_rms": 0.0149,
+      "plane_max": 0.0623,
+      "wrinkle_rms": 0.0147,
+      "wrinkle_max": 0.0646,
+      "plane_rms_vs_base": 17.3677,
+      "wrinkle_rms_vs_base": 17.2283,
+      "buckled": true
+    },
+    {
+      "growth": 0.0,
+      "bending": 0.5,
+      "area_ratio": 1.0,
+      "plane_rms": 0.0009,
+      "plane_max": 0.0016,
+      "wrinkle_rms": 0.0009,
+      "wrinkle_max": 0.0017,
+      "plane_rms_vs_base": 1.0,
+      "wrinkle_rms_vs_base": 1.0,
+      "buckled": false
+    },
+    {
+      "growth": 0.12,
+      "bending": 0.5,
+      "area_ratio": 1.0632,
+      "plane_rms": 0.0152,
+      "plane_max": 0.0604,
+      "wrinkle_rms": 0.0151,
+      "wrinkle_max": 0.0565,
+      "plane_rms_vs_base": 17.7639,
+      "wrinkle_rms_vs_base": 17.6927,
+      "buckled": true
+    },
+    {
+      "growth": 0.25,
+      "bending": 0.5,
+      "area_ratio": 1.1363,
+      "plane_rms": 0.0226,
+      "plane_max": 0.0913,
+      "wrinkle_rms": 0.0222,
+      "wrinkle_max": 0.084,
+      "plane_rms_vs_base": 26.4105,
+      "wrinkle_rms_vs_base": 26.0183,
+      "buckled": true
+    },
+    {
+      "growth": 0.4,
+      "bending": 0.5,
+      "area_ratio": 1.2268,
+      "plane_rms": 0.0301,
+      "plane_max": 0.1156,
+      "wrinkle_rms": 0.0292,
+      "wrinkle_max": 0.105,
+      "plane_rms_vs_base": 35.165,
+      "wrinkle_rms_vs_base": 34.1717,
+      "buckled": true
+    },
+    {
+      "growth": 0.0,
+      "bending": 5.0,
+      "area_ratio": 1.0,
+      "plane_rms": 0.0009,
+      "plane_max": 0.0016,
+      "wrinkle_rms": 0.0009,
+      "wrinkle_max": 0.0017,
+      "plane_rms_vs_base": 1.0,
+      "wrinkle_rms_vs_base": 1.0,
+      "buckled": false
+    },
+    {
+      "growth": 0.12,
+      "bending": 5.0,
+      "area_ratio": 1.0632,
+      "plane_rms": 0.0187,
+      "plane_max": 0.0737,
+      "wrinkle_rms": 0.0186,
+      "wrinkle_max": 0.0696,
+      "plane_rms_vs_base": 21.8304,
+      "wrinkle_rms_vs_base": 21.7527,
+      "buckled": true
+    },
+    {
+      "growth": 0.25,
+      "bending": 5.0,
+      "area_ratio": 1.1364,
+      "plane_rms": 0.025,
+      "plane_max": 0.0937,
+      "wrinkle_rms": 0.0243,
+      "wrinkle_max": 0.091,
+      "plane_rms_vs_base": 29.172,
+      "wrinkle_rms_vs_base": 28.4877,
+      "buckled": true
+    },
+    {
+      "growth": 0.4,
+      "bending": 5.0,
+      "area_ratio": 1.2269,
+      "plane_rms": 0.0303,
+      "plane_max": 0.1171,
+      "wrinkle_rms": 0.0295,
+      "wrinkle_max": 0.1063,
+      "plane_rms_vs_base": 35.4379,
+      "wrinkle_rms_vs_base": 34.532,
+      "buckled": true
+    }
+  ]
+}

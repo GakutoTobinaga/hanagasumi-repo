@@ -1,0 +1,807 @@
+{
+  "meta": {
+    "name": "花霞 (hanagasumi)",
+    "version": "0.3.2-draft",
+    "date": "2026-10-18",
+    "purpose": "交配ゲーム用の花の遺伝子仕様。花びらの形は事前モデル（型）として持ち、花全体のレベルで中間の形を作る。",
+    "source_legend": {
+      "user": "ユーザーが指定した仕様",
+      "measured": "見本（Meshy生成のGLB6枚、または最初の写真）から実測した値",
+      "proposed": "仮置き。根拠となる測定はなく、試して調整する前提",
+      "unconfirmed": "未確認。決める前に確認が必要"
+    },
+    "caveats": [
+      "見本のGLB6枚は、同じ花の統計ではなく、互いに独立でもない（測定値は、型の違いの範囲の目安）。",
+      "見本の写真と3Dは、AIが生成した画像・モデルであり、実物の花の測定値ではない。",
+      "折れ目の本数・重なりの割合は、投影や近似による概算で、湾曲が強い花びらでは信頼度が下がる。"
+    ],
+    "changelog": [
+      "0.1.1: Meshyのゲーム利用OKの回答（ユーザー報告）を反映。",
+      "0.1.2: 付け根（最も細い端）の検出を修正。旧版は、最大の主軸(e1)上だけで探していたため、t4・t5・t6で端を取り違えていた。t4・t5・t6の幅/長さ、最大幅の位置、折れ目の本数・間隔を再測定して差し替えた。",
+      "0.1.3: t4・t6の付け根の検出が、旧ロジックでも新ロジックでも誤っていたことが、描画で判明。t4・t6の付け根依存の値（幅/長さ、最大幅の位置、折れ目の本数・間隔）を、撤回（null）した。t3・t5はユーザーの目視で付け根の向きを確認済み。",
+      "0.1.4: t4・t6の付け根を、ユーザーの目視確認（正面・3/4は右下、背面は左下）で指定し、再測定。長さの軸は、付け根から、最も遠い5%の頂点の重心への向き。",
+      "0.1.5: t1・t2の付け根の検出を、ユーザーが目視で確認（正しい）。6枚すべての付け根が確認済みになった。",
+      "0.2.0: 交配試験（親F2×F3、子240個）の結果を反映。花の半径・高さを独立した遺伝子にして、花全体を横と縦で別々に拡縮して合わせる方式にした。グラデーションは、強さを連続値で混ぜる方式に変更（親にない場合は強さ0）。",
+      "0.3.0: 世代試験（12世代、60個体、5回繰り返し、選別なしのランダム交配）を反映。①層の遺伝子を枚数から切り離した ②開き角を遺伝子から外し、半径と高さの比に合うように自動決定した ③子の値に『親どうしの差に比例したノイズ』を足し、遺伝子ごとにKと突然変異の大きさを調整した。",
+      "0.3.1: 50世代の延長試験（設定E1、60個体、5回）を反映。12世代目の値は、前回の試験と一致（再現OK）。",
+      "0.3.2: 型の突然変異（花びら1枚ごとに6%）と、色相の突然変異（σ16度）を追加。50世代試験で、色相のSDと型の有効数が保たれることを確認。"
+    ]
+  },
+  "flower_genes": {
+    "petal_count": {
+      "type": "integer",
+      "range": [
+        6,
+        10
+      ],
+      "source": "user",
+      "inheritance": "親のどちらかの値、または2親の平均（端数は切り上げ/切り下げをランダム）に、±1の突然変異を確率で加える",
+      "mutation": {
+        "prob_pm1": 0.15,
+        "source": "proposed"
+      }
+    },
+    "layer_count": {
+      "type": "integer",
+      "range": [
+        1,
+        2
+      ],
+      "source": "proposed",
+      "constraint": "遺伝子は書き換えない。見た目だけ、枚数が8未満なら1層として扱う。",
+      "inheritance": "親のどちらか",
+      "note": "旧案の『枚数8未満なら層の遺伝子を1にする』は、一方向にしか働かず、12世代で2層の割合が0.33から0.06に落ちた（修正後は0.31〜0.36）。"
+    },
+    "opening_angle_deg": {
+      "type": "derived",
+      "range": [
+        15,
+        85
+      ],
+      "source": "proposed (tested over 12 generations)",
+      "note": "遺伝子にはしない。花の半径と高さの比（高さ/半径）に、自然な縦横比が合うように、探索で決める。遺伝子にすると、世代を重ねるうちに、半径・高さと食い違う組み合わせが生まれ、12世代目の64%で、花全体の拡縮が、検証済みの範囲（0.85〜1.20）の外になった（0.56〜2.23）。自動決定では、拡縮の比は0.99〜1.01で、範囲外は0%。",
+      "search": "開き角を15〜85度の8点で自然な縦横比を計算し、目標に合う値を線形補間で求める（頂点を8分の1に間引いて評価）。"
+    },
+    "azimuth_jitter": {
+      "type": "float",
+      "range": [
+        0.0,
+        0.25
+      ],
+      "source": "proposed",
+      "note": "等間隔（360/枚数）の角度からのずれの割合。",
+      "inheritance": "blend",
+      "mutation": {
+        "sigma": 0.03,
+        "source": "proposed"
+      }
+    },
+    "overlap_order": {
+      "type": "enum",
+      "choices": [
+        "spiral",
+        "alternate"
+      ],
+      "source": "proposed",
+      "inheritance": "親のどちらか"
+    },
+    "petal_tilt_jitter_deg": {
+      "type": "float",
+      "range": [
+        0,
+        10
+      ],
+      "source": "proposed",
+      "inheritance": "blend"
+    },
+    "petal_size_jitter": {
+      "type": "float",
+      "range": [
+        0.0,
+        0.1
+      ],
+      "source": "proposed",
+      "inheritance": "blend"
+    },
+    "petal_type_assignment": {
+      "type": "per_petal_enum",
+      "choices_from": "petal_type_library",
+      "source": "proposed",
+      "inheritance": "花びら1枚ごとに、親Aか親Bの型を確率的に選ぶ（花全体では中間の見た目になる）",
+      "note": "型の数が少ないと、同じ形の花びらが並ぶ。目安として10種類以上が望ましい（未検証）。",
+      "mutation": {
+        "prob_per_petal": 0.06,
+        "rule": "花びら1枚ごとに、6%の確率で、6種類の型からランダムに別の型に置き換える",
+        "source": "proposed (tested over 50 generations)",
+        "rationale": "突然変異がないと、60個体の有限集団の遺伝的浮動で、型の有効数が、50世代で5.7から3.3に減った。"
+      }
+    },
+    "flower_radius": {
+      "type": "float",
+      "range": [
+        0.7,
+        1.3
+      ],
+      "unit": "花びらの長さ=1に対する、花の水平方向の最大半径",
+      "source": "proposed (tested on F2xF3)",
+      "reference": "親F2=0.93、親F3=1.00（実測）",
+      "inheritance": "blend（alpha 0.2〜0.8の一様乱数）",
+      "mutation": {
+        "sigma": 0.04
+      },
+      "note": "配置後に、花全体を水平方向に拡縮して、この値に合わせる。開き角や層の数に、半径が左右されないようにするため。"
+    },
+    "flower_height": {
+      "type": "float",
+      "range": [
+        0.4,
+        1.2
+      ],
+      "source": "proposed (tested on F2xF3)",
+      "reference": "親F2=0.69、親F3=0.81（実測）",
+      "inheritance": "blend（半径と同じalpha）",
+      "mutation": {
+        "sigma": 0.04
+      },
+      "note": "配置後に、花全体を垂直方向に拡縮して、この値に合わせる。半径だけをそろえると、開き角の小さい花が拡大されて、背が高くなり、高さが親の範囲外になるため。"
+    }
+  },
+  "petal_continuous_genes": {
+    "note": "型の上に重ねる連続変形。折れ目や縮れが、変形後も保たれるかは未検証（ラティスや曲げで試す）。",
+    "width_scale": {
+      "type": "float",
+      "range": [
+        0.8,
+        1.2
+      ],
+      "source": "proposed",
+      "inheritance": "blend"
+    },
+    "length_scale": {
+      "type": "float",
+      "range": [
+        0.8,
+        1.2
+      ],
+      "source": "proposed",
+      "inheritance": "blend"
+    },
+    "longitudinal_bend": {
+      "type": "float",
+      "range": [
+        -0.3,
+        0.3
+      ],
+      "source": "proposed",
+      "note": "長さ方向の反り",
+      "inheritance": "blend"
+    },
+    "trough_depth": {
+      "type": "float",
+      "range": [
+        0.0,
+        0.3
+      ],
+      "source": "proposed",
+      "note": "断面の樋状の丸まり",
+      "inheritance": "blend"
+    }
+  },
+  "petal_type_library": {
+    "asset_requirements": {
+      "format": "GLB",
+      "decimation_target_faces": "約10万（元は36〜69万頂点）",
+      "import_notes": [
+        "UVの継ぎ目で頂点が分割されているので、位置が同じ頂点を統合してから使う。",
+        "メッシュは閉じた殻（厚みあり）。表裏は法線の向きで分けられる（近似）。",
+        "付け根は細い筒状。付け根側を原点にそろえ、軸をZ方向に統一する。"
+      ],
+      "baked_vertex_attributes": [
+        "付け根からの測地距離（0..1）",
+        "輪郭からの距離（0..1）",
+        "粗さ（スケール固定の法線のばらつき）"
+      ],
+      "use_of_attributes": "グラデーション、筋に沿った色の濃淡、縁の質感の割り当てに使う"
+    },
+    "license_status": "user_reported: Meshyにメールで問い合わせ、ゲームでの利用はOKとの回答を得た（ユーザー報告）。回答の原文・対象プラン・範囲（販売/配布、所有権、クレジット表記）は、仕様書の作成者は未確認。回答メールは保管しておく。",
+    "types": [
+      {
+        "id": "t1_image2d",
+        "file": "Meshy_AI_flower_petal_model_1018011222_image-to-3d-texture.glb",
+        "mode": "image-to-3d (texture付き)",
+        "welded_vertices": 374552,
+        "width_over_length": 0.82,
+        "widest_position": 0.7,
+        "depth_over_length": 0.25,
+        "ridge_count": 15,
+        "ridge_spacing_deg": 4.4,
+        "edge_to_interior_roughness_ratio": 2.62,
+        "overlap_fraction": 0.053,
+        "source": "measured",
+        "base_axis_confidence": "confirmed_by_user"
+      },
+      {
+        "id": "t2_wavy",
+        "file": "Meshy_AI_wavy_petal_model_1018011754_generate.glb",
+        "mode": "generate",
+        "welded_vertices": 622115,
+        "width_over_length": 0.62,
+        "widest_position": 0.9,
+        "depth_over_length": 0.31,
+        "ridge_count": 15,
+        "ridge_spacing_deg": 2.8,
+        "edge_to_interior_roughness_ratio": 1.36,
+        "overlap_fraction": 0.233,
+        "overlap_asymmetry": 0.28,
+        "source": "measured",
+        "note": "投影が砂時計状にくびれており、折れ目の本数の信頼度は低い。",
+        "base_axis_confidence": "confirmed_by_user"
+      },
+      {
+        "id": "t3_bottom_left",
+        "file": "Meshy_AI_hanagasumi_bottom_lef_1018013946_generate.glb",
+        "mode": "generate",
+        "welded_vertices": 360058,
+        "width_over_length": 0.59,
+        "widest_position": 0.8,
+        "depth_over_length": 0.4,
+        "ridge_count": 22,
+        "ridge_spacing_deg": 2.5,
+        "edge_to_interior_roughness_ratio": 1.23,
+        "overlap_fraction": 0.151,
+        "overlap_asymmetry": 0.06,
+        "source": "measured",
+        "note": "元写真の bottom-left（2Dの幅/長さ0.61）と対応。湾曲が強い。",
+        "base_axis_confidence": "confirmed_by_user"
+      },
+      {
+        "id": "t4_bottom_right",
+        "file": "Meshy_AI_hanagasumi_bottom_rig_1018013941_generate.glb",
+        "mode": "generate",
+        "welded_vertices": 565477,
+        "width_over_length": 0.85,
+        "widest_position": 0.7,
+        "depth_over_length": 0.33,
+        "ridge_count": 16,
+        "ridge_spacing_deg": 3.2,
+        "edge_to_interior_roughness_ratio": 1.11,
+        "overlap_fraction": 0.133,
+        "overlap_asymmetry": 0.42,
+        "source": "measured",
+        "note": "元写真の bottom-right と対応。片側に偏って重なる。付け根は目視で確認（正面・3/4は右下）。折れ目の本数は半径によって8〜26本と変動し、中〜外側（半径0.5〜0.8）で多い。",
+        "base_axis_confidence": "confirmed_by_user",
+        "retracted_values_wrong_base": {
+          "order": "[width_over_length, widest_position, ridge_count, ridge_spacing_deg]",
+          "v0.1": [
+            0.74,
+            0.9,
+            16,
+            3.3
+          ],
+          "v0.1.2": [
+            1.19,
+            0.2,
+            17,
+            4.2
+          ]
+        }
+      },
+      {
+        "id": "t5_fan",
+        "file": "Meshy_AI_hanagasumi_fan_petal__1018013937_generate.glb",
+        "mode": "generate",
+        "welded_vertices": 391504,
+        "width_over_length": 1.21,
+        "widest_position": 0.6,
+        "depth_over_length": 0.14,
+        "ridge_count": 11,
+        "ridge_spacing_deg": 8.5,
+        "edge_to_interior_roughness_ratio": 1.31,
+        "overlap_fraction": 0.006,
+        "source": "measured",
+        "note": "平らな扇形。幅が長さより大きい（幅/長さ1.21）。旧版の値（0.82、8本、10.1度）は付け根の取り違えによる。元写真の bottom-mid との2D比較（短軸/長軸0.78）は、付け根の向きに依存しない値なので有効。",
+        "base_axis_confidence": "confirmed_by_user"
+      },
+      {
+        "id": "t6_top_right",
+        "file": "Meshy_AI_top_right_petal_model_10180123453.glb",
+        "mode": "generate",
+        "welded_vertices": 686740,
+        "width_over_length": 0.94,
+        "widest_position": 0.6,
+        "depth_over_length": 0.21,
+        "ridge_count": 13,
+        "ridge_spacing_deg": 6.5,
+        "edge_to_interior_roughness_ratio": 1.12,
+        "overlap_fraction": 0.022,
+        "source": "measured",
+        "note": "付け根は目視で確認（正面・3/4は右下）。折れ目の本数は、付け根に近い半径で6本、中〜外側で12〜18本と、増える傾向（根拠は弱い）。",
+        "base_axis_confidence": "confirmed_by_user",
+        "retracted_values_wrong_base": {
+          "order": "[width_over_length, widest_position, ridge_count, ridge_spacing_deg]",
+          "v0.1": [
+            0.86,
+            0.5,
+            9,
+            11.4
+          ],
+          "v0.1.2": [
+            0.86,
+            0.6,
+            12,
+            7.2
+          ]
+        }
+      }
+    ],
+    "groups_observed": [
+      "t1: 粗さが縁に強く集中（他は1.1〜1.4倍）。",
+      "折れ目の間隔は、t1〜t4が2.5〜4.4度、t5・t6が6.5〜8.5度と、やや粗い。ただし6枚で、連続的な可能性もある。",
+      "幅/長さは0.59〜1.21（t5が最大、t3が最小）。",
+      "重なりの割合は、t2〜t4（13〜23%）が多く、t1・t5・t6（0.6〜5%）が少ない。",
+      "折れ目の本数は、半径によって変動し、付け根に近いほど少ない傾向がt4・t6で見えた（根拠は弱い）。"
+    ],
+    "measurement_notes": [
+      "幅/長さは、付け根→先端を長さ、それと直交する面内の広がりを幅とする。t4・t5は幅が長さより大きい（約1.2）。",
+      "元写真との2D比較で使った『短軸/長軸』は、付け根の向きに依存せず、常に1以下の値。幅/長さとは別物。",
+      "付け根の自動検出（主軸の端の断面の小ささ）は、付け根が斜めの角にある花びら（t4・t6）では誤った。6枚すべて、付け根はユーザーが目視で確認済み。新しい型を追加するときは、付け根を目視で確認するか、手で指定する。"
+    ]
+  },
+  "color_genes": {
+    "color_space": "OKLCH",
+    "note": "C_rel は、その明るさLと色相Hで、sRGBに収まる最大の鮮やかさに対する比（0..1）。どの値でも必ず表示できる色になる。",
+    "base_color": {
+      "L": {
+        "range": [
+          0.5,
+          0.95
+        ],
+        "reference": 0.7,
+        "source": "proposed (reference: measured)"
+      },
+      "C_rel": {
+        "range": [
+          0.1,
+          0.9
+        ],
+        "reference": "約0.3（未計算の目安）",
+        "source": "proposed"
+      },
+      "H_deg": {
+        "range": [
+          0,
+          360
+        ],
+        "reference": 300,
+        "source": "proposed (reference: measured)"
+      },
+      "reference_measurement": "見本の写真: 紫の核は L約0.68〜0.72、C約0.055〜0.068、H約295〜304度。花びら全体は鮮やかさ約0.02と、ほぼ白。"
+    },
+    "gradient": {
+      "present": {
+        "type": "derived",
+        "rule": "強さが0.1以上なら出る",
+        "source": "proposed (tested)",
+        "note": "旧案の『優性（どちらかの親にあれば出る）』は、片方の親にあれば、子の100%に出たため廃止。"
+      },
+      "strength": {
+        "type": "float",
+        "range": [
+          0.3,
+          0.9
+        ],
+        "source": "proposed",
+        "note": "0=なし、1=端で第2色に完全に切り替わる。",
+        "inheritance": "blend（親にグラデがない場合は、強さ0として扱う）+ N(0, 0.05)。クリップ0〜0.9"
+      },
+      "second_color_mode": {
+        "type": "enum",
+        "choices": [
+          "auto",
+          "custom"
+        ],
+        "source": "proposed"
+      },
+      "auto_second_color": {
+        "dL": 0.17,
+        "C_multiplier": 0.3,
+        "hue_shift_deg": 0,
+        "source": "measured",
+        "note": "見本の紫の核から、縁（ほぼ無彩色のアイボリー）へ。縁の色相は鮮やかさが低すぎて意味がないので、基準色の色相を保つ。"
+      },
+      "direction": {
+        "type": "enum",
+        "choices": [
+          "base_to_rim",
+          "rim_to_base"
+        ],
+        "source": "proposed"
+      },
+      "midpoint": {
+        "type": "float",
+        "range": [
+          0.2,
+          0.8
+        ],
+        "source": "proposed"
+      },
+      "softness": {
+        "type": "float",
+        "range": [
+          0.1,
+          0.6
+        ],
+        "source": "proposed"
+      },
+      "midpoint_softness_inheritance": "グラデのある親の値の平均"
+    },
+    "mixing_rule": {
+      "L": "直線補間",
+      "C_rel": "直線補間",
+      "H": "色相環の短い弧に沿って補間",
+      "neutral_handling": "どちらかの親が C_rel < 0.05 のときは、もう一方の色相を使う",
+      "complementary_handling": "色相差が約180度のときは、短い弧が不安定なので、ランダムまたは親の優劣で決める",
+      "source": "proposed"
+    },
+    "mutation": {
+      "L_sigma": 0.03,
+      "C_rel_sigma": 0.05,
+      "H_sigma_deg": 16,
+      "source": "proposed",
+      "note": "色相のσは、8度だと、50世代で色相のSDが0.34倍に減ったため、16度に変更（50世代で1.03倍）。他は根拠なしの仮置き。"
+    }
+  },
+  "pistil_genes": {
+    "source": "proposed",
+    "note": "見本の写真では、筒状の子房の先に、数本に分かれた柱頭がある。寸法は未測定。",
+    "length": {
+      "type": "float",
+      "range": "未決定",
+      "inheritance": "blend"
+    },
+    "thickness": {
+      "type": "float",
+      "range": "未決定",
+      "inheritance": "blend"
+    },
+    "stigma_count": {
+      "type": "integer",
+      "range": [
+        3,
+        5
+      ],
+      "inheritance": "親のどちらか"
+    },
+    "stigma_shape": {
+      "type": "enum",
+      "choices": "型を2〜3種類用意",
+      "inheritance": "親のどちらか"
+    },
+    "tilt_deg": {
+      "type": "float",
+      "range": "未決定",
+      "inheritance": "blend"
+    },
+    "color": {
+      "mode": [
+        "linked_to_petal",
+        "independent"
+      ],
+      "reference": "見本の写真で、雄しべ・雌しべ側の大半は、クリーム色（H約85度、L約0.8〜0.9、C約0.01〜0.03）。",
+      "source": "measured (reference only)"
+    }
+  },
+  "stamen_genes": {
+    "source": "proposed",
+    "note": "見本の写真では、扇状に束になっている。本数・長さ・広がりは未測定。葯の色は、写真では紫がかった灰色に見えたが、色の測定では暗い茶〜黄のクラスタ（L約0.53、H約60度）が出ており、判断を保留する。",
+    "count": {
+      "type": "integer",
+      "range": "未決定"
+    },
+    "length": {
+      "type": "float",
+      "range": "未決定"
+    },
+    "spread_angle_deg": {
+      "type": "float",
+      "range": "未決定"
+    },
+    "anther_color": {
+      "type": "oklch",
+      "range": "未決定"
+    }
+  },
+  "breeding_rules": {
+    "source": "proposed",
+    "continuous_genes": "P_child = alpha*P_A + (1-alpha)*P_B + N(0, K*|P_A-P_B|) + N(0, sigma_mut)。alphaは0.2〜0.8の一様乱数。K=SPREAD_K×遺伝子ごとの倍率。",
+    "discrete_genes": "親のどちらかを確率的に選ぶ。優性・劣性の扱いは、遺伝子ごとに指定する（グラデーションの有無は優性）。",
+    "per_petal_types": "花びら1枚ごとに、親Aか親Bの型を選ぶ。選ぶ確率は、花全体で0.5を中心にばらつかせる。",
+    "gradient": "強さを連続値で混ぜ、0.1以上なら、グラデーションあり。",
+    "size": "花の半径と高さは、独立した遺伝子として混ぜ、花全体を横と縦で別々に拡縮して合わせる。",
+    "verification_f2_x_f3_240_children": {
+      "setup": "親F2（8枚・1層・開き角55）×親F3（10枚・2層・開き角45）。子を240個作り、親の範囲±0.02の外に出る割合を測定。",
+      "v1_no_independent_size": {
+        "radius_out_of_range": {
+          "no_mutation": "42%",
+          "with_mutation": "55%"
+        },
+        "height_out_of_range": {
+          "no_mutation": "12%",
+          "with_mutation": "29%"
+        },
+        "gradient_present": "100%（強さは親Bのまま）",
+        "finding": "層の数×開き角の相互作用で、突然変異なしでも、半径が親の範囲外になった。"
+      },
+      "v2_radius_gene": {
+        "radius_out_of_range": {
+          "no_mutation": "0%",
+          "with_mutation": "17%"
+        },
+        "height_out_of_range": {
+          "no_mutation": "38%",
+          "with_mutation": "50%"
+        },
+        "gradient_strength": "平均0.30、範囲0.12〜0.48",
+        "finding": "半径をそろえると、開き角の小さい花が拡大されて、高さが親の範囲外になった。問題が移っただけ。"
+      },
+      "v3_radius_and_height_genes": {
+        "radius_out_of_range": {
+          "no_mutation": "0%",
+          "with_mutation": "21%"
+        },
+        "height_out_of_range": {
+          "no_mutation": "0%",
+          "with_mutation": "8%"
+        },
+        "gradient": {
+          "present": {
+            "no_mutation": "100%",
+            "with_mutation": "98%"
+          },
+          "strength_mean": 0.3,
+          "strength_range_no_mutation": [
+            0.12,
+            0.48
+          ]
+        },
+        "distortion_from_scaling": {
+          "vertical_over_horizontal_5_95pct": {
+            "no_mutation": [
+              0.85,
+              1.2
+            ],
+            "with_mutation": [
+              0.76,
+              1.34
+            ]
+          }
+        },
+        "finding": "半径・高さとも、親の間に収まる。歪みは、突然変異なしで±20%以内（折れ目が保たれると確認済みの範囲）。突然変異ありでは、範囲を少し超える。"
+      }
+    },
+    "spread_parameters": {
+      "SPREAD_K": 0.45,
+      "per_gene_K_scale": {
+        "L": 0.7,
+        "C_rel": 0.45,
+        "az_jit": 0.45,
+        "hue": 1.0,
+        "gradient_strength": 1.0,
+        "radius": 1.0,
+        "height": 1.0
+      },
+      "mutation_sigma": {
+        "L": 0.03,
+        "C_rel": 0.03,
+        "hue_deg": 16,
+        "gradient_strength": 0.05,
+        "radius": 0.04,
+        "height": 0.04,
+        "az_jit": 0.015
+      },
+      "rationale": "平均で混ぜるだけだと、世代ごとにばらつきが減る。Kを足すと、減少を抑えられる。突然変異が、始祖のSDに比べて大きい遺伝子（鮮やかさ、方位角のムラ）は、Kを小さく、突然変異も小さくしないと、SDが2倍近くに膨らむ。",
+      "source": "proposed (tuned in generation test)"
+    },
+    "verification_generations": {
+      "setup": "始祖6個体（F1〜F6）を10個体ずつ＝60個体。毎世代、ランダムに2親を選んで60個体を作る。12世代、5回繰り返し。選別なし。突然変異は現行（1倍）。",
+      "sd_ratio_gen12_over_gen0": {
+        "A_old_layer_bug_K0": {
+          "theta": 0.4,
+          "hue": 0.17,
+          "gradient_strength": 0.26,
+          "radius": 0.31,
+          "height": 0.31,
+          "layer2_fraction": "0.33->0.06"
+        },
+        "D_layer_fix_K045_all_genes": {
+          "theta": 0.61,
+          "az_jit": 1.95,
+          "L": 1.09,
+          "C_rel": 1.92,
+          "hue": 0.63,
+          "gradient_strength": 0.62,
+          "radius": 0.57,
+          "height": 0.68,
+          "N": 0.56,
+          "layer2_fraction": "0.33->0.36"
+        },
+        "E1_derived_theta_per_gene_K": {
+          "theta_derived": 0.63,
+          "az_jit": 0.66,
+          "L": 0.93,
+          "C_rel": 0.68,
+          "hue": 0.62,
+          "gradient_strength": 0.53,
+          "radius": 0.56,
+          "height": 0.7,
+          "N": 0.57,
+          "layer2_fraction": "0.33->0.31",
+          "effective_types": "5.7->4.4"
+        }
+      },
+      "flower_distortion_gen12": {
+        "theta_as_gene": {
+          "vertical_over_horizontal_5_50_95pct": [
+            0.56,
+            1.05,
+            2.23
+          ],
+          "outside_0.85_1.20": "64%"
+        },
+        "theta_derived": {
+          "vertical_over_horizontal_5_50_95pct": [
+            0.99,
+            1.0,
+            1.01
+          ],
+          "outside_0.85_1.20": "0%",
+          "theta_at_bounds": "1%"
+        }
+      },
+      "trajectory_E1_sd_ratio": {
+        "gen4": {
+          "hue": 0.82,
+          "gradient_strength": 0.71,
+          "radius": 0.66,
+          "height": 0.91
+        },
+        "gen8": {
+          "hue": 0.78,
+          "gradient_strength": 0.61,
+          "radius": 0.58,
+          "height": 0.77
+        },
+        "gen12": {
+          "hue": 0.62,
+          "gradient_strength": 0.53,
+          "radius": 0.56,
+          "height": 0.7
+        }
+      },
+      "finding": "12世代で、遺伝子のばらつき（SD）は、0.5〜0.9倍に保たれ、花は、色も大きさも、ばらけたまま。ただし、色相・グラデの強さ・半径は、まだ下がり続けており、平衡に達したかは不明。",
+      "longrun_50_generations_E1": {
+        "setup": "設定E1。5回の平均。SD比は、0世代目に対する比。",
+        "sd_ratio": {
+          "gen12": {
+            "az_jit": 0.66,
+            "L": 0.93,
+            "C_rel": 0.68,
+            "hue": 0.62,
+            "gradient_strength": 0.53,
+            "radius": 0.56,
+            "height": 0.7,
+            "N": 0.57
+          },
+          "gen30": {
+            "az_jit": 0.71,
+            "L": 0.91,
+            "C_rel": 0.73,
+            "hue": 0.5,
+            "gradient_strength": 0.51,
+            "radius": 0.58,
+            "height": 0.69,
+            "N": 0.59
+          },
+          "gen50": {
+            "az_jit": 0.77,
+            "L": 0.79,
+            "C_rel": 0.73,
+            "hue": 0.34,
+            "gradient_strength": 0.5,
+            "radius": 0.69,
+            "height": 0.56,
+            "N": 0.53
+          }
+        },
+        "spread_among_5_runs_gen50": {
+          "hue": [
+            0.24,
+            0.45
+          ],
+          "radius": [
+            0.61,
+            0.74
+          ],
+          "height": [
+            0.51,
+            0.6
+          ],
+          "N": [
+            0.4,
+            0.64
+          ]
+        },
+        "effective_types": "5.7(0世代)->4.4(12)->3.8(30)->3.3(50)",
+        "layer2_fraction": "0.33->0.28（0.25〜0.31で安定）",
+        "mean_drift": {
+          "radius": "0.91->0.99",
+          "gradient_strength": "0.58->0.46",
+          "height": "0.74->0.76"
+        },
+        "finding": "多くの連続値（方位角のムラ、明るさ、鮮やかさ、グラデの強さ、半径、高さ、枚数）のSDは、12世代目以降、元の0.5〜0.8倍で、ほぼ横ばい（平衡に近い）。一方、色相は50世代目まで下がり続け（0.34）、型の有効数も、5.7から3.3まで減り続けた。"
+      },
+      "longrun_50_generations_mutation_tuning": {
+        "setup": "設定E1に、型の突然変異と色相の突然変異の大きさを変えて、50世代、5回の平均。",
+        "baseline_type_mut_0_hue_sigma_8": {
+          "hue_sd_ratio_gen12_30_50": [
+            0.62,
+            0.5,
+            0.34
+          ],
+          "effective_types_gen0_12_30_50": [
+            5.7,
+            4.4,
+            3.8,
+            3.3
+          ]
+        },
+        "F1_type_mut_4pct_hue_sigma_12": {
+          "hue_sd_ratio_gen12_30_50": [
+            0.9,
+            0.77,
+            0.64
+          ],
+          "effective_types_gen0_12_30_50": [
+            5.7,
+            5.2,
+            5.5,
+            5.4
+          ],
+          "hue_sd_deg_0_to_50": "72->47"
+        },
+        "F2_type_mut_6pct_hue_sigma_16_ADOPTED": {
+          "hue_sd_ratio_gen12_30_50": [
+            1.03,
+            0.91,
+            1.03
+          ],
+          "effective_types_gen0_12_30_50": [
+            5.7,
+            5.7,
+            5.8,
+            5.6
+          ],
+          "hue_sd_deg_0_to_50": "72->74",
+          "hue_sd_ratio_gen50_range_over_5_runs": [
+            0.79,
+            1.8
+          ]
+        },
+        "note": "他の遺伝子（方位角のムラ、明るさ、鮮やかさ、グラデの強さ、半径、高さ、枚数）のSD比は、3つの設定で大きく変わらず、50世代目で0.42〜0.94。"
+      }
+    }
+  },
+  "open_questions": [
+    "Meshyの回答メールの範囲（販売・配布、所有権、表記、対象プラン、生成物の解析・派生利用）を、原文で確認して保管する。",
+    "型の連続変形（幅・反り）で、折れ目や縮れが保たれるか（未検証）。",
+    "隣り合う花びらの交差を、どう避けるか（配置の傾きの交互化は案のみ）。",
+    "型を何種類用意するか（10種類以上が目安だが、未検証）。",
+    "雄しべ・雌しべの寸法、本数、形（未測定）。",
+    "同じ画像から複数回生成したときの、生成のばらつき（未測定）。",
+    "交配試験は、1つの親ペアのみ。他のペア（枚数・層・型・色が大きく違う親）で、同じ結果になるかは未確認。",
+    "世代を重ねたとき（子どうし、孫世代）に、遺伝子が収束・偏りしないかは未実施。",
+    "世代試験は、選別なしのランダム交配のみ。プレイヤーが親を選ぶ場合（選別あり）の挙動は未検証。",
+    "色相の平均は、始祖の構成と偶然のドリフトで、世代ごとに偏る（回ごとに違う色に寄る）。始祖の選び方でゲームの序盤の色調が決まる点は、設計上の注意事項。",
+    "色相の突然変異σ16度で、集団によっては、色相のSDが、始祖より増える（50世代目で最大1.8倍）。色相が一様に散らばる集団では、色の統一感が失われないか、見た目での確認が必要（未実施）。"
+  ]
+}

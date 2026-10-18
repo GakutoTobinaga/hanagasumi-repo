@@ -1,0 +1,485 @@
+[
+ {
+  "name": "F1",
+  "N": 6,
+  "layers": 1,
+  "theta": 30,
+  "az_jit": 0.05,
+  "types": [
+   "t5"
+  ],
+  "order": "alternate",
+  "col": [
+   0.72,
+   0.35,
+   300
+  ],
+  "grad": [
+   1,
+   0.8,
+   0.5,
+   0.35
+  ],
+  "seed": 1,
+  "petals": [
+   {
+    "type": "t5",
+    "scale": 1.09,
+    "theta_deg": 39.0,
+    "phi_deg": 0.1,
+    "roll_deg": 4.4
+   },
+   {
+    "type": "t5",
+    "scale": 0.982,
+    "theta_deg": 28.5,
+    "phi_deg": 58.9,
+    "roll_deg": -4.7
+   },
+   {
+    "type": "t5",
+    "scale": 1.008,
+    "theta_deg": 20.6,
+    "phi_deg": 120.3,
+    "roll_deg": 10.5
+   },
+   {
+    "type": "t5",
+    "scale": 0.991,
+    "theta_deg": 35.8,
+    "phi_deg": 179.0,
+    "roll_deg": -10.0
+   },
+   {
+    "type": "t5",
+    "scale": 0.952,
+    "theta_deg": 28.1,
+    "phi_deg": 237.8,
+    "roll_deg": 5.0
+   },
+   {
+    "type": "t5",
+    "scale": 1.096,
+    "theta_deg": 25.6,
+    "phi_deg": 301.5,
+    "roll_deg": -8.1
+   }
+  ]
+ },
+ {
+  "name": "F2",
+  "N": 8,
+  "layers": 1,
+  "theta": 55,
+  "az_jit": 0.1,
+  "types": [
+   "t1",
+   "t2"
+  ],
+  "order": "alternate",
+  "col": [
+   0.72,
+   0.35,
+   300
+  ],
+  "grad": [
+   0,
+   0,
+   0,
+   0
+  ],
+  "seed": 2,
+  "petals": [
+   {
+    "type": "t1",
+    "scale": 0.918,
+    "theta_deg": 51.0,
+    "phi_deg": -2.1,
+    "roll_deg": 11.1
+   },
+   {
+    "type": "t2",
+    "scale": 0.955,
+    "theta_deg": 48.8,
+    "phi_deg": 47.1,
+    "roll_deg": -12.4
+   },
+   {
+    "type": "t2",
+    "scale": 0.987,
+    "theta_deg": 56.2,
+    "phi_deg": 91.4,
+    "roll_deg": 4.5
+   },
+   {
+    "type": "t2",
+    "scale": 1.037,
+    "theta_deg": 57.7,
+    "phi_deg": 134.3,
+    "roll_deg": -3.3
+   },
+   {
+    "type": "t2",
+    "scale": 1.002,
+    "theta_deg": 48.7,
+    "phi_deg": 179.0,
+    "roll_deg": 6.5
+   },
+   {
+    "type": "t2",
+    "scale": 0.994,
+    "theta_deg": 51.4,
+    "phi_deg": 227.5,
+    "roll_deg": -3.8
+   },
+   {
+    "type": "t1",
+    "scale": 0.94,
+    "theta_deg": 47.1,
+    "phi_deg": 271.7,
+    "roll_deg": 4.0
+   },
+   {
+    "type": "t2",
+    "scale": 0.981,
+    "theta_deg": 62.0,
+    "phi_deg": 316.6,
+    "roll_deg": -6.6
+   }
+  ]
+ },
+ {
+  "name": "F3",
+  "N": 10,
+  "layers": 2,
+  "theta": 45,
+  "az_jit": 0.15,
+  "types": [
+   "t3",
+   "t4",
+   "t6"
+  ],
+  "order": "spiral",
+  "col": [
+   0.8,
+   0.45,
+   350
+  ],
+  "grad": [
+   1,
+   0.6,
+   0.5,
+   0.3
+  ],
+  "seed": 3,
+  "petals": [
+   {
+    "type": "t3",
+    "scale": 1.016,
+    "theta_deg": 39.7,
+    "phi_deg": -8.9,
+    "roll_deg": 3.0
+   },
+   {
+    "type": "t3",
+    "scale": 1.047,
+    "theta_deg": 44.6,
+    "phi_deg": 70.6,
+    "roll_deg": -1.6
+   },
+   {
+    "type": "t4",
+    "scale": 0.986,
+    "theta_deg": 42.8,
+    "phi_deg": 135.7,
+    "roll_deg": 3.7
+   },
+   {
+    "type": "t4",
+    "scale": 1.03,
+    "theta_deg": 54.1,
+    "phi_deg": 221.1,
+    "roll_deg": 3.2
+   },
+   {
+    "type": "t6",
+    "scale": 1.095,
+    "theta_deg": 40.9,
+    "phi_deg": 292.2,
+    "roll_deg": 2.1
+   },
+   {
+    "type": "t3",
+    "scale": 0.994,
+    "theta_deg": 67.8,
+    "phi_deg": 32.0,
+    "roll_deg": 9.7
+   },
+   {
+    "type": "t3",
+    "scale": 0.975,
+    "theta_deg": 50.6,
+    "phi_deg": 113.9,
+    "roll_deg": 12.7
+   },
+   {
+    "type": "t3",
+    "scale": 1.026,
+    "theta_deg": 68.6,
+    "phi_deg": 183.5,
+    "roll_deg": 9.5
+   },
+   {
+    "type": "t4",
+    "scale": 0.944,
+    "theta_deg": 64.8,
+    "phi_deg": 247.6,
+    "roll_deg": 16.4
+   },
+   {
+    "type": "t6",
+    "scale": 0.986,
+    "theta_deg": 63.7,
+    "phi_deg": 327.4,
+    "roll_deg": 19.2
+   }
+  ]
+ },
+ {
+  "name": "F4",
+  "N": 7,
+  "layers": 1,
+  "theta": 75,
+  "az_jit": 0.1,
+  "types": [
+   "t1",
+   "t5",
+   "t6"
+  ],
+  "order": "alternate",
+  "col": [
+   0.78,
+   0.55,
+   40
+  ],
+  "grad": [
+   1,
+   0.7,
+   0.5,
+   0.3
+  ],
+  "seed": 4,
+  "petals": [
+   {
+    "type": "t5",
+    "scale": 0.916,
+    "theta_deg": 75.2,
+    "phi_deg": 4.6,
+    "roll_deg": 12.8
+   },
+   {
+    "type": "t5",
+    "scale": 1.074,
+    "theta_deg": 81.0,
+    "phi_deg": 50.2,
+    "roll_deg": -11.3
+   },
+   {
+    "type": "t1",
+    "scale": 0.986,
+    "theta_deg": 83.0,
+    "phi_deg": 103.3,
+    "roll_deg": 7.8
+   },
+   {
+    "type": "t6",
+    "scale": 1.086,
+    "theta_deg": 72.4,
+    "phi_deg": 159.3,
+    "roll_deg": -3.3
+   },
+   {
+    "type": "t1",
+    "scale": 1.089,
+    "theta_deg": 77.2,
+    "phi_deg": 202.4,
+    "roll_deg": 10.0
+   },
+   {
+    "type": "t5",
+    "scale": 1.0,
+    "theta_deg": 75.0,
+    "phi_deg": 253.4,
+    "roll_deg": -8.1
+   },
+   {
+    "type": "t5",
+    "scale": 1.004,
+    "theta_deg": 72.0,
+    "phi_deg": 313.3,
+    "roll_deg": 5.2
+   }
+  ]
+ },
+ {
+  "name": "F5",
+  "N": 9,
+  "layers": 2,
+  "theta": 60,
+  "az_jit": 0.1,
+  "types": [
+   "t1",
+   "t2",
+   "t3",
+   "t4",
+   "t5",
+   "t6"
+  ],
+  "order": "spiral",
+  "col": [
+   0.7,
+   0.4,
+   255
+  ],
+  "grad": [
+   1,
+   0.9,
+   0.45,
+   0.3
+  ],
+  "seed": 5,
+  "petals": [
+   {
+    "type": "t6",
+    "scale": 0.957,
+    "theta_deg": 66.2,
+    "phi_deg": 4.4,
+    "roll_deg": 0.2
+   },
+   {
+    "type": "t1",
+    "scale": 0.91,
+    "theta_deg": 58.2,
+    "phi_deg": 70.3,
+    "roll_deg": -2.5
+   },
+   {
+    "type": "t2",
+    "scale": 0.987,
+    "theta_deg": 63.0,
+    "phi_deg": 151.2,
+    "roll_deg": 1.3
+   },
+   {
+    "type": "t6",
+    "scale": 0.999,
+    "theta_deg": 66.9,
+    "phi_deg": 221.7,
+    "roll_deg": 4.9
+   },
+   {
+    "type": "t3",
+    "scale": 0.954,
+    "theta_deg": 51.2,
+    "phi_deg": 290.5,
+    "roll_deg": 8.6
+   },
+   {
+    "type": "t6",
+    "scale": 0.945,
+    "theta_deg": 78.6,
+    "phi_deg": 37.2,
+    "roll_deg": 13.7
+   },
+   {
+    "type": "t5",
+    "scale": 1.041,
+    "theta_deg": 82.4,
+    "phi_deg": 142.1,
+    "roll_deg": 7.2
+   },
+   {
+    "type": "t1",
+    "scale": 0.965,
+    "theta_deg": 73.7,
+    "phi_deg": 225.1,
+    "roll_deg": 11.0
+   },
+   {
+    "type": "t4",
+    "scale": 1.04,
+    "theta_deg": 71.3,
+    "phi_deg": 320.5,
+    "roll_deg": 12.5
+   }
+  ]
+ },
+ {
+  "name": "F6",
+  "N": 6,
+  "layers": 1,
+  "theta": 20,
+  "az_jit": 0.05,
+  "types": [
+   "t2",
+   "t3"
+  ],
+  "order": "spiral",
+  "col": [
+   0.88,
+   0.45,
+   95
+  ],
+  "grad": [
+   1,
+   0.5,
+   0.5,
+   0.3
+  ],
+  "seed": 6,
+  "petals": [
+   {
+    "type": "t2",
+    "scale": 0.975,
+    "theta_deg": 16.9,
+    "phi_deg": 0.2,
+    "roll_deg": -1.3
+   },
+   {
+    "type": "t3",
+    "scale": 1.036,
+    "theta_deg": 23.5,
+    "phi_deg": 60.8,
+    "roll_deg": 1.5
+   },
+   {
+    "type": "t3",
+    "scale": 0.902,
+    "theta_deg": 11.0,
+    "phi_deg": 117.7,
+    "roll_deg": 9.9
+   },
+   {
+    "type": "t3",
+    "scale": 0.941,
+    "theta_deg": 25.7,
+    "phi_deg": 182.0,
+    "roll_deg": 5.1
+   },
+   {
+    "type": "t3",
+    "scale": 0.924,
+    "theta_deg": 18.6,
+    "phi_deg": 242.1,
+    "roll_deg": 14.1
+   },
+   {
+    "type": "t2",
+    "scale": 0.921,
+    "theta_deg": 25.2,
+    "phi_deg": 300.0,
+    "roll_deg": 16.4
+   }
+  ]
+ }
+]
