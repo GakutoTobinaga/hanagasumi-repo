@@ -1,0 +1,1414 @@
+{
+ "000": {
+  "選別なし k=60": {
+   "target_at_20": null,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.24666666666666667,
+    "spiral": 0.6233333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.32333333333333336,
+    "spiral": 0.5166666666666667,
+    "fixed_layers": 1,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.3266666666666667,
+    "spiral": 0.53,
+    "fixed_layers": 1,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.2733333333333334,
+    "spiral": 0.5466666666666666,
+    "fixed_layers": 1,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.1833333333333333,
+    "spiral": 0.5700000000000001,
+    "fixed_layers": 1,
+    "fixed_order": 2
+   }
+  },
+  "色相300度(範囲内) k=12": {
+   "target_at_20": 13.439645390382259,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "20": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "25": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "30": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "40": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   }
+  },
+  "色相300度(範囲内) k=2": {
+   "target_at_20": 12.807576333424388,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "20": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "25": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "30": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "40": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   }
+  },
+  "色相180度(始祖にない) k=12": {
+   "target_at_20": 12.780291701339891,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.55,
+    "spiral": 1.0,
+    "fixed_layers": 0,
+    "fixed_order": 5
+   },
+   "20": {
+    "layers2": 0.5166666666666667,
+    "spiral": 1.0,
+    "fixed_layers": 2,
+    "fixed_order": 5
+   },
+   "25": {
+    "layers2": 0.47666666666666674,
+    "spiral": 1.0,
+    "fixed_layers": 2,
+    "fixed_order": 5
+   },
+   "30": {
+    "layers2": 0.5066666666666667,
+    "spiral": 1.0,
+    "fixed_layers": 2,
+    "fixed_order": 5
+   },
+   "40": {
+    "layers2": 0.5533333333333333,
+    "spiral": 1.0,
+    "fixed_layers": 3,
+    "fixed_order": 5
+   }
+  },
+  "色相180度(始祖にない) k=2": {
+   "target_at_20": 13.24494790252569,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "20": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "25": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "30": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "40": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   }
+  },
+  "半径が大きい k=12": {
+   "target_at_20": 1.2859001684995182,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.13999999999999999,
+    "spiral": 0.08666666666666667,
+    "fixed_layers": 3,
+    "fixed_order": 2
+   },
+   "20": {
+    "layers2": 0.0,
+    "spiral": 0.2333333333333333,
+    "fixed_layers": 5,
+    "fixed_order": 3
+   },
+   "25": {
+    "layers2": 0.0,
+    "spiral": 0.13666666666666666,
+    "fixed_layers": 5,
+    "fixed_order": 3
+   },
+   "30": {
+    "layers2": 0.0,
+    "spiral": 0.14333333333333334,
+    "fixed_layers": 5,
+    "fixed_order": 3
+   },
+   "40": {
+    "layers2": 0.0,
+    "spiral": 0.12333333333333334,
+    "fixed_layers": 5,
+    "fixed_order": 4
+   }
+  },
+  "半径が大きい k=2": {
+   "target_at_20": 1.284095721701099,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "20": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "25": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "30": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "40": {
+    "layers2": 0.0,
+    "spiral": 0.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   }
+  },
+  "枚数10 k=12": {
+   "target_at_20": 9.923333333333334,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "20": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "25": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "30": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "40": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   }
+  },
+  "枚数10 k=2": {
+   "target_at_20": 9.923333333333332,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "20": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "25": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "30": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   },
+   "40": {
+    "layers2": 1.0,
+    "spiral": 1.0,
+    "fixed_layers": 5,
+    "fixed_order": 5
+   }
+  }
+ },
+ "002": {
+  "選別なし k=60": {
+   "target_at_20": null,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.3,
+    "spiral": 0.43,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.37666666666666665,
+    "spiral": 0.4699999999999999,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.4133333333333334,
+    "spiral": 0.5366666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.44333333333333336,
+    "spiral": 0.47333333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.5966666666666667,
+    "spiral": 0.5199999999999999,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相300度(範囲内) k=12": {
+   "target_at_20": 12.981999327612247,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.08333333333333333,
+    "spiral": 0.12999999999999998,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.4633333333333334,
+    "spiral": 0.21000000000000002,
+    "fixed_layers": 0,
+    "fixed_order": 1
+   },
+   "25": {
+    "layers2": 0.4533333333333333,
+    "spiral": 0.27,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.49333333333333335,
+    "spiral": 0.29333333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.48,
+    "spiral": 0.3066666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相300度(範囲内) k=2": {
+   "target_at_20": 12.141010546571561,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.09666666666666666,
+    "spiral": 0.006666666666666666,
+    "fixed_layers": 2,
+    "fixed_order": 3
+   },
+   "20": {
+    "layers2": 0.20999999999999996,
+    "spiral": 0.13666666666666671,
+    "fixed_layers": 2,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.29999999999999993,
+    "spiral": 0.18333333333333335,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.25000000000000006,
+    "spiral": 0.2533333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.4133333333333333,
+    "spiral": 0.3666666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相180度(始祖にない) k=12": {
+   "target_at_20": 13.424738622641636,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.52,
+    "spiral": 0.9366666666666668,
+    "fixed_layers": 0,
+    "fixed_order": 2
+   },
+   "20": {
+    "layers2": 0.37666666666666665,
+    "spiral": 0.6033333333333333,
+    "fixed_layers": 2,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.42666666666666664,
+    "spiral": 0.5833333333333334,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.42333333333333334,
+    "spiral": 0.5766666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.4066666666666666,
+    "spiral": 0.4133333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相180度(始祖にない) k=2": {
+   "target_at_20": 13.043311138826667,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.9766666666666666,
+    "spiral": 0.9733333333333334,
+    "fixed_layers": 0,
+    "fixed_order": 1
+   },
+   "20": {
+    "layers2": 0.5133333333333333,
+    "spiral": 0.6833333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.53,
+    "spiral": 0.6966666666666665,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.49333333333333335,
+    "spiral": 0.6833333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.49000000000000005,
+    "spiral": 0.5933333333333334,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "半径が大きい k=12": {
+   "target_at_20": 1.2845648997028853,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.023333333333333334,
+    "spiral": 0.16,
+    "fixed_layers": 1,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.2,
+    "spiral": 0.12666666666666665,
+    "fixed_layers": 2,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.2633333333333333,
+    "spiral": 0.23666666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.17333333333333334,
+    "spiral": 0.2733333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.3233333333333333,
+    "spiral": 0.44666666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "半径が大きい k=2": {
+   "target_at_20": 1.283952378385424,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.4166666666666667,
+    "spiral": 0.1,
+    "fixed_layers": 1,
+    "fixed_order": 1
+   },
+   "20": {
+    "layers2": 0.73,
+    "spiral": 0.31000000000000005,
+    "fixed_layers": 0,
+    "fixed_order": 1
+   },
+   "25": {
+    "layers2": 0.7,
+    "spiral": 0.4033333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.67,
+    "spiral": 0.5233333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.6233333333333333,
+    "spiral": 0.47333333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "枚数10 k=12": {
+   "target_at_20": 9.926666666666666,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.9133333333333333,
+    "spiral": 0.9466666666666667,
+    "fixed_layers": 2,
+    "fixed_order": 1
+   },
+   "20": {
+    "layers2": 0.8700000000000001,
+    "spiral": 0.5666666666666667,
+    "fixed_layers": 1,
+    "fixed_order": 2
+   },
+   "25": {
+    "layers2": 0.8399999999999999,
+    "spiral": 0.5666666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.8,
+    "spiral": 0.52,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.7699999999999999,
+    "spiral": 0.47333333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "枚数10 k=2": {
+   "target_at_20": 9.906666666666666,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.9833333333333334,
+    "spiral": 0.9666666666666666,
+    "fixed_layers": 2,
+    "fixed_order": 1
+   },
+   "20": {
+    "layers2": 0.6900000000000001,
+    "spiral": 0.5966666666666667,
+    "fixed_layers": 3,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.6766666666666666,
+    "spiral": 0.5966666666666668,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.62,
+    "spiral": 0.5866666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.6133333333333333,
+    "spiral": 0.55,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  }
+ },
+ "003": {
+  "選別なし k=60": {
+   "target_at_20": null,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.31333333333333335,
+    "spiral": 0.4066666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.41,
+    "spiral": 0.4966666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.4,
+    "spiral": 0.51,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.4066666666666666,
+    "spiral": 0.5033333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.5900000000000001,
+    "spiral": 0.45,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相300度(範囲内) k=12": {
+   "target_at_20": 12.981999327612247,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.08333333333333333,
+    "spiral": 0.12999999999999998,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.5900000000000001,
+    "spiral": 0.24666666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.5333333333333333,
+    "spiral": 0.32999999999999996,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.5333333333333333,
+    "spiral": 0.42000000000000004,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.5966666666666667,
+    "spiral": 0.4,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相300度(範囲内) k=2": {
+   "target_at_20": 12.141010546571561,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.11000000000000001,
+    "spiral": 0.08666666666666667,
+    "fixed_layers": 1,
+    "fixed_order": 1
+   },
+   "20": {
+    "layers2": 0.49333333333333335,
+    "spiral": 0.1366666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.45666666666666667,
+    "spiral": 0.25666666666666665,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.49333333333333335,
+    "spiral": 0.35,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.4833333333333333,
+    "spiral": 0.44666666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相180度(始祖にない) k=12": {
+   "target_at_20": 13.424738622641636,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.48666666666666664,
+    "spiral": 0.7933333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 2
+   },
+   "20": {
+    "layers2": 0.4333333333333333,
+    "spiral": 0.3533333333333334,
+    "fixed_layers": 2,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.41000000000000003,
+    "spiral": 0.42666666666666664,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.4,
+    "spiral": 0.4166666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.5166666666666667,
+    "spiral": 0.2833333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相180度(始祖にない) k=2": {
+   "target_at_20": 13.043311138826667,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.9633333333333333,
+    "spiral": 0.9633333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.7066666666666667,
+    "spiral": 0.6799999999999999,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.6733333333333333,
+    "spiral": 0.6933333333333334,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.67,
+    "spiral": 0.6833333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.6,
+    "spiral": 0.63,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "半径が大きい k=12": {
+   "target_at_20": 1.2845648997028853,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.12666666666666665,
+    "spiral": 0.18,
+    "fixed_layers": 1,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.3566666666666667,
+    "spiral": 0.13,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.33,
+    "spiral": 0.22666666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.29333333333333333,
+    "spiral": 0.30999999999999994,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.4033333333333333,
+    "spiral": 0.37333333333333335,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "半径が大きい k=2": {
+   "target_at_20": 1.283952378385424,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.4866666666666667,
+    "spiral": 0.1,
+    "fixed_layers": 0,
+    "fixed_order": 1
+   },
+   "20": {
+    "layers2": 0.5733333333333333,
+    "spiral": 0.32666666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.54,
+    "spiral": 0.4366666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.5833333333333333,
+    "spiral": 0.47666666666666674,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.5900000000000001,
+    "spiral": 0.4533333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "枚数10 k=12": {
+   "target_at_20": 9.926666666666666,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.8200000000000001,
+    "spiral": 0.9366666666666668,
+    "fixed_layers": 0,
+    "fixed_order": 1
+   },
+   "20": {
+    "layers2": 0.6466666666666667,
+    "spiral": 0.49000000000000005,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.6766666666666666,
+    "spiral": 0.43666666666666665,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.6399999999999999,
+    "spiral": 0.4133333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.63,
+    "spiral": 0.5000000000000001,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "枚数10 k=2": {
+   "target_at_20": 9.906666666666666,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.8766666666666667,
+    "spiral": 0.8766666666666666,
+    "fixed_layers": 1,
+    "fixed_order": 1
+   },
+   "20": {
+    "layers2": 0.6799999999999999,
+    "spiral": 0.22333333333333338,
+    "fixed_layers": 1,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.6799999999999999,
+    "spiral": 0.2833333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.64,
+    "spiral": 0.4033333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.6,
+    "spiral": 0.3666666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  }
+ },
+ "005": {
+  "選別なし k=60": {
+   "target_at_20": null,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.32999999999999996,
+    "spiral": 0.42333333333333334,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.5066666666666666,
+    "spiral": 0.5066666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.41000000000000003,
+    "spiral": 0.4666666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.4666666666666666,
+    "spiral": 0.44666666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.5533333333333335,
+    "spiral": 0.4699999999999999,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相300度(範囲内) k=12": {
+   "target_at_20": 12.981999327612247,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.15333333333333335,
+    "spiral": 0.21333333333333337,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.43666666666666665,
+    "spiral": 0.37666666666666665,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.4866666666666667,
+    "spiral": 0.37333333333333335,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.5633333333333332,
+    "spiral": 0.44000000000000006,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.5466666666666666,
+    "spiral": 0.44333333333333325,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相300度(範囲内) k=2": {
+   "target_at_20": 12.141010546571561,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.42666666666666664,
+    "spiral": 0.08666666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.6,
+    "spiral": 0.31333333333333335,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.5433333333333332,
+    "spiral": 0.30666666666666664,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.4833333333333334,
+    "spiral": 0.44333333333333336,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.5266666666666667,
+    "spiral": 0.4466666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相180度(始祖にない) k=12": {
+   "target_at_20": 13.424738622641636,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.4666666666666667,
+    "spiral": 0.7433333333333334,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.5599999999999999,
+    "spiral": 0.26333333333333336,
+    "fixed_layers": 1,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.57,
+    "spiral": 0.32333333333333336,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.6333333333333334,
+    "spiral": 0.4333333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.5433333333333333,
+    "spiral": 0.5066666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "色相180度(始祖にない) k=2": {
+   "target_at_20": 13.043311138826667,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.9366666666666668,
+    "spiral": 0.9433333333333334,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.43,
+    "spiral": 0.49000000000000005,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.5333333333333333,
+    "spiral": 0.51,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.5633333333333334,
+    "spiral": 0.5233333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.48,
+    "spiral": 0.4866666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "半径が大きい k=12": {
+   "target_at_20": 1.2845648997028853,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.22000000000000003,
+    "spiral": 0.25999999999999995,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.44000000000000006,
+    "spiral": 0.4866666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.4333333333333334,
+    "spiral": 0.48999999999999994,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.37333333333333335,
+    "spiral": 0.4166666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.44666666666666666,
+    "spiral": 0.33999999999999997,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "半径が大きい k=2": {
+   "target_at_20": 1.283952378385424,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.5833333333333334,
+    "spiral": 0.13,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.12,
+    "spiral": 0.44000000000000006,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.3,
+    "spiral": 0.4966666666666667,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.4,
+    "spiral": 0.4133333333333334,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.35666666666666663,
+    "spiral": 0.42333333333333334,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "枚数10 k=12": {
+   "target_at_20": 9.926666666666666,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.7433333333333333,
+    "spiral": 0.8633333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.5433333333333333,
+    "spiral": 0.47333333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.59,
+    "spiral": 0.45,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.5,
+    "spiral": 0.36000000000000004,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.6633333333333333,
+    "spiral": 0.40333333333333343,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  },
+  "枚数10 k=2": {
+   "target_at_20": 9.906666666666666,
+   "0": {
+    "layers2": 0.3333333333333333,
+    "spiral": 0.5,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "5": {
+    "layers2": 0.6833333333333333,
+    "spiral": 0.7933333333333333,
+    "fixed_layers": 1,
+    "fixed_order": 0
+   },
+   "20": {
+    "layers2": 0.29666666666666663,
+    "spiral": 0.5833333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "25": {
+    "layers2": 0.3966666666666666,
+    "spiral": 0.5566666666666666,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "30": {
+    "layers2": 0.4033333333333333,
+    "spiral": 0.5233333333333333,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   },
+   "40": {
+    "layers2": 0.4833333333333334,
+    "spiral": 0.42666666666666664,
+    "fixed_layers": 0,
+    "fixed_order": 0
+   }
+  }
+ }
+}
