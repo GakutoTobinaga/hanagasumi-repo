@@ -1,6 +1,6 @@
-# 見本のGLB（リポジトリには含まれません）
+# 見本のGLB（6枚、このフォルダに含まれる）
 
-次の6ファイルを、このフォルダ（または `GLB_DIR` で指定したフォルダ）に置いてください。Meshy AIで生成したもの。
+Meshy AIで生成した花びらのモデル。合計約156MB（各約18〜33MB）。`scripts/load_all_glb.sh` が、このフォルダを読む。
 
 | 型 | ファイル名 | 生成 |
 |---|---|---|
@@ -11,4 +11,4 @@
 | t5 | `Meshy_AI_hanagasumi_fan_petal__1018013937_generate.glb` | generate |
 | t6 | `Meshy_AI_top_right_petal_model_10180123453.glb` | generate |
 
-各約18〜33MB、36万〜69万頂点（UVの継ぎ目で分割された頂点を統合した後）。利用条件は、`NOTICE.md`。
+36万〜69万頂点（UVの継ぎ目で分割された頂点を統合した後）。**利用条件は `NOTICE.md`。**

@@ -17,18 +17,17 @@
 | `spec/hanagasumi_gene_spec.json` | 遺伝子仕様書（正本、v0.3.2-draft） |
 | `src/` | コード（`cloth/`, `analysis/`, `flower/`, `obsolete/`） |
 | `results/` | 結果画像（`images/INDEX.md`に索引）と統計（JSON） |
-| `assets/` | 見本のGLB（**含まれない**。`assets/README.md`参照） |
+| `assets/` | 見本のGLB6枚（約156MB、含まれる。`assets/README.md`参照） |
 | `scripts/` | 環境構築、GLBの読み込み |
 
 ## クイックスタート
 ```
 bash scripts/setup_env.sh        # Python 3.11 + bpy 4.5.0（/tmp/bpyenv）
-# assets/ にGLBを置く
 bash scripts/load_all_glb.sh
 /tmp/bpyenv/bin/python src/flower/hanagasumi_longrun_test.py -- /tmp/meshy/long
 ```
 詳しくは `docs/HANDOFF.md` 6章。
 
 ## 注意
-- 見本のGLBと、見本の写真は、含まれません。Meshy生成物の利用は、ユーザーがMeshyに確認済み（回答の原文は、リポジトリにない）。
+- 見本のGLB6枚は含まれます（ユーザーの判断。公開リポジトリ）。見本の**写真**は、含まれません。Meshy生成物の利用は、ユーザーがMeshyに確認済みです（回答の原文は、リポジトリにありません）。条件は `NOTICE.md`。
 - ライセンスは、未設定です（`NOTICE.md`）。

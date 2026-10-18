@@ -28,7 +28,7 @@
 
 ## 4. 見本（Meshy）について
 - 見本は、最初に渡された「パーツ分けの写真（花びら6枚＋雄しべ・雌しべ）」から、1枚ずつ画像を生成（「image 2.5」と呼ばれていた画像モデル）して、Meshy（モデル: Meshy 7.1）で3D化したもの、とのこと（ユーザーの説明。「〜っぽい」と曖昧）。プロンプトは、同じだったと思う、とのこと。
-- 6枚のGLBは、**リポジトリに含めない**（容量・権利の理由）。`assets/README.md`にファイル名の一覧がある。
+- 6枚のGLBは、**`assets/` に含まれる**（約156MB。ユーザーの指示で、公開リポジトリに入れた。再配布がMeshyの回答に含まれるかは、未確認 → `NOTICE.md`）。ファイル名の一覧は`assets/README.md`。
 - MeshyのAI生成技術は、**オープンソースではない**（調べた範囲。GitHub組織の公開リポジトリは`.github`のみ。MCPサーバーとエージェント用スキルパックは公開されているが、APIのラッパーで、生成技術ではない）。論文・モデルの公開の有無までは、確認していない。
 - 型の対応（ファイル名→型ID）は、`spec/hanagasumi_gene_spec.json` の `petal_type_library.types` にある。**旧ログのp3〜p6は、t3〜t6のこと**（例: `p5_fan` = t5）。
 
@@ -60,7 +60,7 @@
 ### 6.2 再現の手順
 ```
 bash scripts/setup_env.sh                 # 環境
-# assets/ に6枚のGLBを置く（ファイル名は assets/README.md）
+# （assets/ に、6枚のGLBが入っている）
 bash scripts/load_all_glb.sh              # GLB→npz（/tmp/meshy/t1..t6.npz）→ 型の下処理（dec_t*.npz）
 /tmp/bpyenv/bin/python src/flower/hanagasumi_flower_proto.py -- /tmp/meshy/flower          # 6種類の花を描画
 /tmp/bpyenv/bin/python src/flower/hanagasumi_breeding_test.py -- /tmp/meshy/breed          # 親F2×F3の交配、子6つ
@@ -79,6 +79,7 @@ Clothの実験: `src/cloth/verify_cloth_growth.py`（使い方は、ファイル
 | `src/flower/` | 型の下処理、花の組み立て・描画、交配試験、世代試験、50世代試験 |
 | `src/obsolete/` | 旧版・使い捨て（参照のみ。`analyze1/2`、`mut_check*`、`rk_test`など） |
 | `results/images/INDEX.md` | 59枚の結果画像の索引 |
+| `assets/` | 見本のGLB6枚（Meshy生成、約156MB） |
 | `results/stats/` | 各試験の統計（JSON） |
 | `docs/FINDINGS.md` | 測定・試験の結果のまとめ |
 | `docs/TIMELINE.md` | 会話の経緯の要約 |
