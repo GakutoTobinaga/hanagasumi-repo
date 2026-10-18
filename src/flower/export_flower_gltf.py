@@ -1,7 +1,7 @@
 """
 export_flower_gltf.py -- 花を1つ組み立てて、glTF（.glb）で書き出す（Godot に渡す用）。
 組み立ては hanagasumi_flower_proto.py と同じ（FLOWERS の1つ）。色は頂点カラー COLOR_0（リニアRGB、OKLCH から計算済み）。
-花びらは1枚ずつ別のメッシュ（ノード名 p0, p1, ...）。マテリアルは付けない（Godot 側で付ける）。
+花びらは1枚ずつ別のメッシュ（ノード名 p0, p1, ...）。マテリアルは付けない（Godot 側で付ける）。UV の u に、付け根からの距離 r を入れる。
 実行: python export_flower_gltf.py -- <出力.glb> [花の名前 F1〜F6]
 """
 import os, sys, numpy as np, bpy
@@ -20,6 +20,8 @@ for pi, p in enumerate(make_flower(g, np.random.default_rng(g["seed"]))):
     rgb = petal_colors(d["r"], g["col"], g["grad"])
     ca = me.color_attributes.new(name="Col", type='FLOAT_COLOR', domain='POINT'); ca.data.foreach_set("color", np.concatenate([rgb, np.ones((nv, 1))], 1).astype(np.float32).ravel())
     me.color_attributes.active_color = ca; me.color_attributes.render_color_index = 0
+    uv = me.uv_layers.new(name="r")   # TEXCOORD_0: u = 付け根からの距離 r（0→先端1）。Godot 側で、縁ほど薄く（透ける）するのに使う
+    lr = np.clip(d["r"], 0, 1)[T.ravel()]; uv.data.foreach_set("uv", np.stack([lr, np.zeros_like(lr)], 1).astype(np.float32).ravel())
     ob = bpy.data.objects.new(me.name, me); sc.collection.objects.link(ob)
 kw = dict(filepath=OUT, export_format='GLB', export_apply=False, export_materials='NONE')
 try: bpy.ops.export_scene.gltf(**kw, export_vertex_color='ACTIVE')     # Blender 4.2以降。マテリアルなしでも頂点カラーを書き出す

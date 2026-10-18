@@ -150,3 +150,7 @@
 ## Godot 4.4.1（Forward+、ソフトウェアVulkan）での描画試験（`scripts/godot_render.sh`）。A不透明 / B標準マテリアルのBack Lighting / C自作シェーダー（BACKLIGHT=頂点色×0.5） / D Cの逆光の影なし / E標準マテリアルの透過（transmittance）
 
 - `godot_F3.png`
+
+## Godot の光の調整（`godot/petal.gdshader`、`godot/flower.gd`）。上段=前からの光のみ（A標準 / C自作）、中段=逆光あり（B標準のBack Lighting / D自作）、下段=低い視点から逆光（G標準 / F自作）
+
+- `godot_F3_light.png`
