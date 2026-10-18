@@ -141,3 +141,8 @@
 
 - `generations3_g12_34.png`
 - `generations3_g12_colors.png`
+
+## 質感の描画試験（Cycles CPU、64サンプル＋ノイズ除去、`src/flower/hanagasumi_material_test.py`）。A不透明 / B半透明0.5 / C半透明0.5＋逆光 / D半透明0.8＋逆光 / E縁ほど半透明＋光沢＋逆光
+
+- `material_F5.png`（青紫、2層）
+- `material_F3.png`（ピンク、2層）
