@@ -14,6 +14,8 @@ DERIVE_THETA = True # True: 開き角は遺伝子にせず、半径と高さの�
 KSCALE = dict(az=0.45, C=0.45, L=0.7, hue=1.0)
 HUE_MUT = 16       # 色相の突然変異の大きさ（度）。8度だと、50世代で色相のSDが0.34倍に減った
 TYPE_MUT = 0.06    # 花びら1枚ごとに、別の型に置き換える確率（0だと、50世代で型の有効数が5.7から3.3に減った）
+LAYER_MUT = 0.03   # 層（1⇔2）を反転する確率。0だと、選別の巻き添えで片方に固定されて戻らなかった（選別ありの8条件中7条件）
+ORDER_MUT = 0.03   # 並べ方（らせん⇔交互）を反転する確率。層と同じ理由
 ALL_TYPES = ["t1", "t2", "t3", "t4", "t5", "t6"]   # 遺伝子ごとのKの倍率（SPREAD_Kにかける）。突然変異が相対的に大きい遺伝子は、Kを小さくする
 exec(open(PROTO, encoding="utf-8").read().split("FLOWERS = [")[0])      # TYPES, oklch, petal_colors, place, make_flower, OUT
 
@@ -50,10 +52,12 @@ def breed(A, B, rng, name):
     N = int(rng.choice([A["N"], B["N"], round((A["N"] + B["N"]) / 2)]))
     if rng.random() < 0.15: N += int(rng.choice([-1, 1]))
     N = int(np.clip(N, 6, 10)); layers = int(rng.choice([A["layers"], B["layers"]]))
+    if LAYER_MUT > 0 and rng.random() < LAYER_MUT: layers = 3 - layers                                    # 層の突然変異
     if not LAYER_FIX and N < 8: layers = 1
     theta = None if DERIVE_THETA else float(np.clip(mix(A["theta"], B["theta"]) + rng.normal(0, 5), 20, 80))
     az = float(np.clip(mix(A["az_jit"], B["az_jit"], SPREAD_K * KSCALE["az"]) + rng.normal(0, 0.015), 0, 0.25))
     order = str(rng.choice([A["order"], B["order"]]))
+    if ORDER_MUT > 0 and rng.random() < ORDER_MUT: order = "alternate" if order == "spiral" else "spiral"    # 並べ方の突然変異
     LA, CA, HA = A["col"]; LB, CB, HB = B["col"]
     if CA < 0.05: H = HB
     elif CB < 0.05: H = HA
