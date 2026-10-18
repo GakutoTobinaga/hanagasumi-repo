@@ -146,3 +146,7 @@
 
 - `material_F5.png`（青紫、2層）
 - `material_F3.png`（ピンク、2層）
+
+## Godot 4.4.1（Forward+、ソフトウェアVulkan）での描画試験（`scripts/godot_render.sh`）。A不透明 / B標準マテリアルのBack Lighting / C自作シェーダー（BACKLIGHT=頂点色×0.5） / D Cの逆光の影なし / E標準マテリアルの透過（transmittance）
+
+- `godot_F3.png`

@@ -1,0 +1,5 @@
+config_version=5
+[application]
+config/name="hanagasumi_render_test"
+[rendering]
+renderer/rendering_method="forward_plus"
